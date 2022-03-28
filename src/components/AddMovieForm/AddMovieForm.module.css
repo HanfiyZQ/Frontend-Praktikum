@@ -17,6 +17,7 @@
     max-width: 100%;
     height: auto;
     border-radius: 25px;
+    display: none;
 }
 
 .form__title{
@@ -72,6 +73,10 @@
         justify-content: space-between;
         align-items: center;
         text-align: left;
+    }
+
+    .form__image{
+        display: flex;
     }
 
     .form__left{

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import styles from "./Hero.module.css";
+import Button from "../ui/Button";
+import StyledHero from "./Hero.styled";
 
 function Hero() {
     // membuat state movie
-    const [movie,setMovie] = useState("");
+    const [movie, setMovie] = useState("");
 
     async function fetchMovie() {
         // melakukan side effects: fetch data movie (API);
@@ -15,28 +16,23 @@ function Hero() {
         setMovie(data);
     }
 
-    useEffect(fetchMovie,[]);
+    useEffect(fetchMovie, []);
     console.log(movie);
 
-
     return (
-        <div className={styles.container}>
-            <section className={styles.hero}>
-                <div className={styles.hero__left}>
-                    <h2 className={styles.hero__title}>{movie.Title}</h2>
-                    <h3 className={styles.hero__genre}>{movie.Genre}</h3>
-                    <p className={styles.hero__description}>
-                        {movie.Plot}
-                    </p>
-                    <button className={styles.hero__button}>Watch</button>
+        <StyledHero>
+            <section >
+                <div>
+                    <h2>{movie.Title}</h2>
+                    <h3>{movie.Genre}</h3>
+                    <p>{movie.Plot}</p>
+                    <Button variant="secondary" size="medium">Watch</Button>
                 </div>
-                <div className={styles.hero__right}>
-                    <img
-                        className={styles.hero__image}
-                        src={movie.Poster} alt={movie.Title} />
+                <div>
+                    <img src={movie.Poster} alt={movie.Title} />
                 </div>
             </section>
-        </div>
+        </StyledHero>
     );
 }
 

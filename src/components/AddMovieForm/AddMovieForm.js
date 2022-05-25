@@ -2,6 +2,7 @@ import styles from "./AddMovieForm.module.css";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import Alert from "../Alert/Alert";
+import Button from "../ui/Button";
 
 function AddMovieForm(props) {
     // destructing props
@@ -16,7 +17,7 @@ function AddMovieForm(props) {
     });
 
     // membuat fungsi handleChange untuk handle semua input form
-    function handleChange(e){
+    function handleChange(e) {
         const { name, value } = e.target;
 
         setFormData({
@@ -32,9 +33,9 @@ function AddMovieForm(props) {
         isImageError: false,
         isTypeError: false,
     });
-    
 
-    function validate(){
+
+    function validate() {
         if (title === "") {
             setErrors({
                 ...errors,
@@ -42,7 +43,7 @@ function AddMovieForm(props) {
             });
             return false;
         }
-        else if (date === ""){ 
+        else if (date === "") {
             setErrors({
                 ...errors,
                 isTitleError: false,
@@ -50,7 +51,7 @@ function AddMovieForm(props) {
             });
             return false;
         }
-        else if (image === ""){
+        else if (image === "") {
             setErrors({
                 ...errors,
                 isTitleError: false,
@@ -59,7 +60,7 @@ function AddMovieForm(props) {
             });
             return false;
         }
-        else if (type === ""){
+        else if (type === "") {
             setErrors({
                 ...errors,
                 isTitleError: false,
@@ -174,12 +175,12 @@ function AddMovieForm(props) {
                                 className={styles.form__label}>
                                 Genre
                             </label>
-                            <select 
-                            id="type"
-                            name="type" 
-                            className={styles.form__input} 
-                            value={type} 
-                            onChange={handleChange}>
+                            <select
+                                id="type"
+                                name="type"
+                                className={styles.form__input}
+                                value={type}
+                                onChange={handleChange}>
                                 <option value="action">Action</option>
                                 <option value="horror">Horror</option>
                                 <option value="drama">Drama</option>
@@ -190,7 +191,7 @@ function AddMovieForm(props) {
                             {isTypeError && <Alert>Genre Wajib Diisi</Alert>}
                         </div>
                         <div>
-                            <button className={styles.form__button}>Add Movie</button>
+                            <Button full size="extralarge">Add Movie</Button>
                         </div>
                     </form>
                 </div>

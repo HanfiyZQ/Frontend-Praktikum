@@ -8,6 +8,7 @@ const Button = styled.button`
     color: #fff;
     border: none;
     cursor: pointer;
+    margin-top: auto;
 
     // props variant
     background-color: ${({ theme, variant }) => theme.colors[variant] || theme.colors.primary};

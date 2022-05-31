@@ -50,6 +50,10 @@ const StyledHero = styled.div`
             flex-basis: 40%;
         }
 
+        p {
+            margin-bottom: 3rem;
+        }
+
     }
 `;
 

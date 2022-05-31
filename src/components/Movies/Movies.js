@@ -24,7 +24,7 @@ function Movies(props) {
     return (
         <div className={styles.container}>
             <section className={styles.movies}>
-                <h2 className={styles.movies__title}>Latest Movies</h2>
+                <h2 className={styles.movies__title}>{props.title}</h2>
                 <div className={styles.movie__container}>
                     {
                         /**
@@ -37,8 +37,8 @@ function Movies(props) {
                         })
                     }
                 </div>
-                {/* menambahkan event on Click */}
-                <button onClick={addMovie}>Add Movie</button>
+                {/* menambahkan event on Click
+                <button onClick={addMovie}>Add Movie</button> */}
             </section>
         </div>
     );

@@ -12,7 +12,7 @@ const StyledMovie = styled.div`
 
     h3 {
         color: #4361ee;
-        font-size: 1.95rem;
+        font-size: 1.59rem;
         margin-bottom: 0.5rem;
     }
 
@@ -21,6 +21,7 @@ const StyledMovie = styled.div`
     }
 
     @media (min-width: 768px) {
+        margin-bottom: auto;
         flex-basis: 50%;
     }
 

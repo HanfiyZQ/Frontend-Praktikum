@@ -35,7 +35,6 @@ function Hero() {
 
         // fetch detail movie by id
         const response = await axios(ENDPOINTS.DETAIL_MOVIE(id));
-        console.log(response.data);
 
         setMovie(response.data);
     }

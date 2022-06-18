@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailMovie from "../../components/DetailMovie";
 import Movies from "../../components/Movies/Movies";
+import { updateMovies } from "../../features/moviesSlice";
 import ENDPOINTS from "../../utils/constants/endpoints";
 
 function Detail() {
     const params = useParams();
-    const [movies, setMovies] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         getRecommendationMovies();
@@ -15,15 +17,13 @@ function Detail() {
 
     async function getRecommendationMovies() {
         const response = await axios(ENDPOINTS.RECOMMENDATIONS(params.id));
-        setMovies(response.data.results);
+        dispatch(updateMovies(response.data.results));
     }
-
-    console.log(movies);
 
     return (
         <>
             <DetailMovie />
-            <Movies movies={movies} title="Recommendations" />
+            <Movies title="Recommendations" />
         </>
     );
 }
